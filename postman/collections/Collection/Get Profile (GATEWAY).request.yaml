@@ -1,0 +1,4 @@
+$kind: http-request
+url: http://localhost:8888/api/profile/users/a59ba163-e410-41ec-9b16-0d0c8752fdd9
+method: GET
+order: 2838422442652524
