@@ -49,14 +49,13 @@ public class AuthenticationFilter implements GlobalFilter, Ordered {
         log.info("Token: {}", token);
 
         // Delegate identity service
-        identityService.introspect(token).flatMap(introspectResponse -> {
+        return identityService.introspect(token).flatMap(introspectResponse -> {
                     if (introspectResponse.getResult().isValid())
                         return chain.filter(exchange);
                     else
                         return unauthenticated(exchange.getResponse());
                 }).onErrorResume(throwable -> unauthenticated(exchange.getResponse()));
 
-        return chain.filter(exchange);
     }
 
     @Override
