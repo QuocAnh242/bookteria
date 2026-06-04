@@ -25,6 +25,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class PostService {
+    DateTimeFormatter dateTimeFormatter;
     PostRepository postRepository;
     PostMapper postMapper;
     DataTimeFormatter dateTimeFormatter;
