@@ -8,3 +8,19 @@ spring:
   data:
     mongodb:
       uri: mongodb://root:root@localhost:27017/post-service?authSource=admin
+
+app:
+  service:
+    profile:
+      url: http://localhost:8081/profile
+    notification:
+      url: http://localhost:8082/notification
+    kafka:
+      topic: post-events
+      bootstrap-servers: localhost:9094
+      producer:
+        key-serializer: org.apache.kafka.common.serialization.StringSerializer
+        value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+        properties:
+          spring.json.add.type.headers: false
+          spring.json.trusted.packages: "*"
